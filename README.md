@@ -1,7 +1,13 @@
 # PrankServer
-WebServer to prank someone
+Questo WebServer prova a collegarsi in una delle seguenti porte:
+- 6050
+- 6040
+- 6060
+- 5050
+- 5040
+- 5060
 
-
+Se nessuno delle seguenti porte è disponibile, l'applicativo non parte.
 
 ## Endpoint
 
