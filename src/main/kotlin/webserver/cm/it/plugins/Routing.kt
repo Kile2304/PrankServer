@@ -39,16 +39,6 @@ fun Application.configureRouting() {
                 launch { randomMouseMovement(5) }
                 call.respond(HttpStatusCode.OK)
             }
-//            get("/right_click") {
-//                Robot().mousePress(InputEvent.BUTTON3_DOWN_MASK)
-//            }
-//            get("/play") {
-//                launch {
-//                    Desktop.getDesktop().browse(URI(call.receiveText()))
-//                }
-////                systemVolumeToMAX()
-//                call.respond(HttpStatusCode.OK)
-//            }
             get("/jumpscare") {
                 launch {
                     jumpscareFrame()

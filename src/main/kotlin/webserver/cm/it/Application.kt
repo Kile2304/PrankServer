@@ -19,7 +19,7 @@ fun main() {
                 Netty, port = port, host = "0.0.0.0", module = Application::module
             ).start(wait = true)
             break
-        } catch (ex: BindException) { }
+        } catch (_: BindException) { }
 }
 
 fun Application.module() {
