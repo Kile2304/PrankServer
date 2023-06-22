@@ -6,13 +6,12 @@ import io.ktor.server.netty.*
 import webserver.cm.it.plugins.*
 import java.net.BindException
 import javax.swing.UIManager
-
 class App
+
+val PRANK_VERSION = "1.2-SNAPSHOT"
 
 fun main() {
     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName())
-
-//    playSong("/jumpscare.wav")
 
     for (port in listOf(6050, 6040, 6060, 5050, 5040, 5060))
         try {
@@ -26,6 +25,5 @@ fun main() {
 fun Application.module() {
     configureSecurity()
     configureSerialization()
-    configureTemplating()
     configureRouting()
 }
