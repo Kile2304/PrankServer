@@ -1,6 +1,6 @@
-package webserver.cm.it.prank
+package it.cm.webserver.prank
 
-import webserver.cm.it.request.DialogModel
+import it.cm.webserver.request.DialogModel
 import java.awt.*
 import javax.swing.*
 

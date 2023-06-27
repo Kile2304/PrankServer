@@ -1,4 +1,4 @@
-package webserver.cm.it.prank
+package it.cm.webserver.prank
 
 import kotlinx.coroutines.delay
 import java.awt.Robot

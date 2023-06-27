@@ -14,7 +14,7 @@
         <logback_version>1.2.11</logback_version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
-        <main.class>webserver.cm.it.ApplicationKt</main.class>
+        <main.class>it.cm.webserver.ApplicationKt</main.class>
 
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
@@ -76,6 +76,11 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>${logback_version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlinx</groupId>
+            <artifactId>kotlinx-coroutines-swing</artifactId>
+            <version>1.7.1</version>
         </dependency>
         <dependency>
             <groupId>io.ktor</groupId>

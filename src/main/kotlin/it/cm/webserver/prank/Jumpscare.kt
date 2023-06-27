@@ -1,7 +1,7 @@
-package webserver.cm.it.prank
+package it.cm.webserver.prank
 
-import webserver.cm.it.util.frameWithImage
-import webserver.cm.it.util.playSong
+import it.cm.webserver.util.frameWithImage
+import it.cm.webserver.util.playSong
 import javax.swing.JFrame
 
 fun jumpscareFrame() {

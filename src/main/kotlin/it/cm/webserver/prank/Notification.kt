@@ -1,7 +1,7 @@
-package webserver.cm.it.prank
+package it.cm.webserver.prank
 
-import webserver.cm.it.App
-import webserver.cm.it.request.NotificationModel
+import it.cm.webserver.App
+import it.cm.webserver.request.NotificationModel
 import java.awt.SystemTray
 import java.awt.Toolkit
 import java.awt.TrayIcon

@@ -1,14 +1,19 @@
-package webserver.cm.it.util
+package it.cm.webserver.util
 
-import webserver.cm.it.App
+import it.cm.webserver.App
+import java.io.BufferedInputStream
 import javax.sound.sampled.AudioSystem
 import javax.sound.sampled.DataLine
 import javax.sound.sampled.FloatControl
 import javax.sound.sampled.SourceDataLine
 
-fun playSong(filePath: String, beforePlay: ()->Any, afterPlay: (Any)->Unit) {
+fun playSong(filePath: String, beforePlay: ()->Any = {  }, afterPlay: (Any)->Unit = { }) {
     try {
-        val audioInputStream = AudioSystem.getAudioInputStream(App::class.java.getResourceAsStream(filePath))
+        val audioInputStream = AudioSystem.getAudioInputStream(
+            BufferedInputStream(    // Necessario per audio file su JAR
+                App::class.java.getResourceAsStream(filePath)
+            )
+        )
         val audioFormat = audioInputStream.format
         val info = DataLine.Info(SourceDataLine::class.java, audioFormat)
 
@@ -30,8 +35,12 @@ fun playSong(filePath: String, beforePlay: ()->Any, afterPlay: (Any)->Unit) {
 
         val returned = beforePlay()
         sourceDataLine.start()
-        while (audioInputStream.read(buffer).also { bytesRead = it } != -1) {
-            sourceDataLine.write(buffer, 0, bytesRead)
+        var checker = 0
+        while (audioInputStream.read(buffer).also { bytesRead = it } != -1 || checker < 10) {
+            if (bytesRead > 0)
+                sourceDataLine.write(buffer, 0, bytesRead)
+            else
+                checker++
         }
         afterPlay(returned)
 

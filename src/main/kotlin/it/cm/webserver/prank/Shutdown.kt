@@ -1,4 +1,4 @@
-package webserver.cm.it.prank
+package it.cm.webserver.prank
 
 import java.io.File
 import kotlin.system.exitProcess

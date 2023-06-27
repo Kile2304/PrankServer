@@ -1,4 +1,4 @@
-package webserver.cm.it.plugins
+package it.cm.webserver.plugins
 
 import io.ktor.server.auth.*
 import io.ktor.server.response.*

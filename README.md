@@ -35,7 +35,7 @@ curl -X GET -i http://<ip>:6050/shutdown -u <username>:<password>
 Permette l'apertura del browser all'URL passato come parametro.<br/>
 L'url deve essere passato nel body.
 ```shell
-curl -X GET -i http://<ip>:6050/ping -d <url> -u <username>:<password>
+curl -X POST -i http://<ip>:6050/browse -d <url> -u <username>:<password>
 ```
 
 #### /popup *(POST)*
@@ -64,13 +64,15 @@ curl -X GET -i http://<ip>:6050/move_mouse -u <username>:<password>
 Crea un frame fullscreen con un'immagine jumpscare e in sottofondo
 viene riprodotto un'audio di un'urlo.
 ```shell
-curl -X GET -i http://<ip>:6050/popup -u <username>:<password>
+curl -X GET -i http://<ip>:6050/jumpscare -u <username>:<password>
 ```
 
-#### /blue_screen *(GET)*
-Crea un frame fullscreen che visualizza il blue_screen di windows.
+#### /blue_screen/{time} *(GET)*
+Crea un frame fullscreen che visualizza il blue_screen di windows per il tempo 
+specificato in {time:milliseconds}, il path {time} è facoltativo, se omesso verrà visualizzato
+per 5 secondi.
 ```shell
-curl -X POST -i http://<ip>:6050/popup -d <json> -u <username>:<password>
+curl -X GET -i http://<ip>:6050/blue_screen/10000 -d -u <username>:<password>
 ```
 
 #### /notification *(POST)*
@@ -86,5 +88,5 @@ Crea delle notifiche di windows.<br/>
 ```
 I valori possibili del campo type sono: ERROR,WARNING,INFO,NONE.
 ```shell
-curl -X POST -i http://<ip>:6050/popup -d <json> -u <username>:<password>
+curl -X POST -i http://<ip>:6050/notification -d <json> -u <username>:<password>
 ```

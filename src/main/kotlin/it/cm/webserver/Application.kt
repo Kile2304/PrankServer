@@ -1,11 +1,15 @@
-package webserver.cm.it
+package it.cm.webserver
 
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
-import webserver.cm.it.plugins.*
+import it.cm.webserver.plugins.configureRouting
+import it.cm.webserver.plugins.configureSecurity
+import it.cm.webserver.plugins.configureSerialization
 import java.net.BindException
 import javax.swing.UIManager
+
+
 class App
 
 val PRANK_VERSION = "1.2-SNAPSHOT"
@@ -20,6 +24,9 @@ fun main() {
             ).start(wait = true)
             break
         } catch (_: BindException) { }
+
+
+
 }
 
 fun Application.module() {

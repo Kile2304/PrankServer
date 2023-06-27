@@ -1,4 +1,4 @@
-package webserver.cm.it.request
+package it.cm.webserver.request
 
 data class DialogModel(
     val title: String

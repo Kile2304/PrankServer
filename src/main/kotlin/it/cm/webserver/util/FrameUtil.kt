@@ -1,6 +1,7 @@
-package webserver.cm.it.util
+package it.cm.webserver.util
 
-import webserver.cm.it.App
+import it.cm.webserver.App
+import java.awt.Dimension
 import java.awt.GridLayout
 import javax.swing.ImageIcon
 import javax.swing.JFrame

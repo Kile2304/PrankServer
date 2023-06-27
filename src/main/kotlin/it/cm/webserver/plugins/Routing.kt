@@ -1,4 +1,4 @@
-package webserver.cm.it.plugins
+package it.cm.webserver.plugins
 
 import io.ktor.http.*
 import io.ktor.server.application.*
@@ -8,11 +8,12 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import webserver.cm.it.PRANK_VERSION
-import webserver.cm.it.prank.*
-import webserver.cm.it.request.DialogModel
-import webserver.cm.it.request.NotificationModel
-import webserver.cm.it.util.frameWithImage
+import it.cm.webserver.PRANK_VERSION
+import it.cm.webserver.prank.*
+import it.cm.webserver.request.DialogModel
+import it.cm.webserver.request.NotificationModel
+import it.cm.webserver.util.frameWithImage
+import it.cm.webserver.util.playSong
 
 fun Application.configureRouting() {
     routing {
@@ -45,10 +46,26 @@ fun Application.configureRouting() {
                 }
                 call.respond(HttpStatusCode.OK)
             }
-            get("/blue_screen") {
+            get("/fart") {
+                launch { playSong("/audio/fart.wav") }
+                call.respond(HttpStatusCode.OK)
+            }
+//            get("/pokemon") {
+//                launch {
+//                    with(pokemonAnimation {
+//
+//                    }) {
+//                        delay(2000)
+//                        dispose()
+//                    }
+//                }
+//                call.respond(HttpStatusCode.OK)
+//            }
+            get("/blue_screen/{time?}") {
+                val time: Long = call.parameters["time"]?.toLong() ?: 5000
                 launch {
                     with(frameWithImage("/image/blue_screen.png")) {
-                        delay(5000)
+                        delay(time)
                         dispose()
                     }
                 }
