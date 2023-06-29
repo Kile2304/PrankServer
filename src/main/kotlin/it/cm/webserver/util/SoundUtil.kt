@@ -7,6 +7,13 @@ import javax.sound.sampled.DataLine
 import javax.sound.sampled.FloatControl
 import javax.sound.sampled.SourceDataLine
 
+/**
+ * Plays a song from the given file path.
+ *
+ * @param filePath the path to the audio file to be played
+ * @param beforePlay a lambda expression to be executed before playing the song. It takes no arguments and returns any value.
+ * @param afterPlay a lambda expression to be executed after playing the song. It takes the value returned by beforePlay as its only argument and returns no value.
+ */
 fun playSong(filePath: String, beforePlay: ()->Any = {  }, afterPlay: (Any)->Unit = { }) {
     try {
         val audioInputStream = AudioSystem.getAudioInputStream(

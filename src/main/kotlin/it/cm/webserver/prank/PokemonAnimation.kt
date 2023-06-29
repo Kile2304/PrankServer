@@ -14,6 +14,11 @@ import javax.swing.JFrame
 
 val animList: Deque<PokemonAnim> = ConcurrentLinkedDeque()
 
+/**
+ * Creates a JFrame and displays a Pokemon animation.
+ *
+ * @param animations The animation sequence to be performed on the Pokemon.
+ */
 inline fun CoroutineScope.pokemonAnimation(
     animations: Deque<PokemonAnim>.()->Unit
 ) =

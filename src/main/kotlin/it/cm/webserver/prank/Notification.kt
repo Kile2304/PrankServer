@@ -6,6 +6,11 @@ import java.awt.SystemTray
 import java.awt.Toolkit
 import java.awt.TrayIcon
 
+/**
+ * Displays a notification in the system tray using the specified NotificationModel.
+ *
+ * @param model The NotificationModel object containing the notification details.
+ */
 fun notification(model: NotificationModel) {
     //Obtain only one instance of the SystemTray object
     val tray = SystemTray.getSystemTray()

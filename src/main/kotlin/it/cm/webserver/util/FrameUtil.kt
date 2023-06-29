@@ -7,7 +7,21 @@ import javax.swing.ImageIcon
 import javax.swing.JFrame
 import javax.swing.JLabel
 
-fun frameWithImage(imagePath: String): JFrame =
+/**
+ * Creates and returns a `JFrame` object with an image set as its content.
+ *
+ * @param imagePath the relative path of the image file
+ * @return the created `JFrame` object
+ */
+fun frameWithImage(imagePath: String): JFrame = frameWithImage(ImageIcon(App::class.java.getResource(imagePath)))
+
+/**
+ * Creates a new JFrame with the given image as its content, and applies some settings.
+ *
+ * @param image The ImageIcon to be set as the content of the frame.
+ * @return The newly created JFrame with the specified image as its content.
+ */
+fun frameWithImage(image: ImageIcon): JFrame =
     JFrame().apply {
         val current = this
         isUndecorated = true
@@ -18,7 +32,7 @@ fun frameWithImage(imagePath: String): JFrame =
         layout = GridLayout()
 
         contentPane.add(
-            JLabel(ImageIcon(App::class.java.getResource(imagePath))).apply {
+            JLabel(image).apply {
                 setSize(current.width, current.height)
             }
         )
